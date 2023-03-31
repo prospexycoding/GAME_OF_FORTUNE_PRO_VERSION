@@ -134,10 +134,12 @@ play_btn.addEventListener('click',()=>{
         setTimeout(()=>{
             document.querySelector('.amount-play').classList.remove('error')
         },1000)
+
+        alert("insufficient balance")
     }else{
         document.querySelector('.result').style.display = "flex"
         game_environment.style.display = "none"
-        score_board_btn.style.display = "flex"
+        score_board_btn.style.display = "none"
 
     
         
