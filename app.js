@@ -50,7 +50,6 @@ signup_form.addEventListener('submit',(event)=>{
     event.preventDefault()
 
     let username = document.querySelector('.username').value
-    let email = document.querySelector('.email').value
     let phone = document.querySelector('.phone').value
     let balance = document.querySelector('.balance').value
 
@@ -67,13 +66,6 @@ signup_form.addEventListener('submit',(event)=>{
             
         },1000)
 
-    }else if(email.length < 1){
-        document.querySelector('.email').classList.add('error')
-
-        setTimeout(()=>{
-            document.querySelector('.email').classList.remove('error')
-            
-        },1000)
 
     }else if(phone < 1){
         document.querySelector('.phone').classList.add('error')
