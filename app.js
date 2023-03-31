@@ -1,5 +1,7 @@
 let get_started_btn = document.querySelector('.get-started-btn')
 let form_container = document.querySelector('.form-container')
+let score_board_btn = document.querySelector('.score-board-btn')
+
 
 get_started_btn.addEventListener('click',(event)=>{
     event.preventDefault()
@@ -42,7 +44,6 @@ file.addEventListener('change',(event)=>{
 
 let signup_form = document.querySelector('.signup-form')
 let score_board_container = document.querySelector('.score-board-container')
-let score_board_btn = document.querySelector('.score-board-btn')
 let balance_value = document.querySelector('.balance-value')
 
 signup_form.addEventListener('submit',(event)=>{
@@ -120,10 +121,27 @@ document.querySelector('.profile-bet-btn').addEventListener('click',()=>{
 let play_btn = document.querySelector('.play-btn')
 
 
+
+
+
 play_btn.addEventListener('click',()=>{
+    let amount_played = Number(document.querySelector('.amount-play').value)
 
-    let amount_played = document.querySelector('.amount-play').value
 
+    if(amount_played > Number(balance_value.innerHTML)){
+        document.querySelector('.amount-play').classList.add('error')
+    
+        setTimeout(()=>{
+            document.querySelector('.amount-play').classList.remove('error')
+        },1000)
+    }else{
+        document.querySelector('.result').style.display = "flex"
+        game_environment.style.display = "none"
+        score_board_btn.style.display = "flex"
+
+    
+        
+    
     let net_amount = Number(balance_value.innerHTML) - Number(amount_played)
 
     balance_value.innerHTML = net_amount
@@ -201,10 +219,8 @@ play_btn.addEventListener('click',()=>{
     document.querySelector('.pppp').innerHTML = total_wins
 
     balance_value.innerHTML = Number(balance_value.innerHTML) + total_wins
-
-    document.querySelector('.result').style.display = "flex"
-    game_environment.style.display = "none"
-    score_board_btn.style.display = "none"
+    }
+    
 })
 
 
